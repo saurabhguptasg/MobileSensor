@@ -8,6 +8,8 @@
 @protocol DeviceMotionUpdateHandler;
 
 @interface WidgetManager : NSObject
+- (void)loadWidgets;
+
 - (void)registerDeviceListener:(NSObject <DeviceMotionUpdateHandler> *)handler withKey:(NSString *)key;
 
 - (void)deregisterDeviceListenerForKey:(NSString *)key;

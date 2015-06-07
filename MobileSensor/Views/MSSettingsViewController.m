@@ -8,8 +8,9 @@
 
 
 @implementation MSSettingsViewController {
-
+@private
     WidgetManager *_widgetManager;
+    UITextField *endpointField;
 }
 
 - (instancetype)init {

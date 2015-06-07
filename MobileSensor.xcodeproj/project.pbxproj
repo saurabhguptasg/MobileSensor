@@ -46,6 +46,8 @@
 		CA1FAAE29F2D8FBC623AB4B1 /* GyroDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = CA1FA76DB38F10FE1B2295D5 /* GyroDetailView.m */; };
 		CA1FAAF43B3CF39ABFC05BB2 /* FAImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = CA1FA08711E1E2D45CDF390B /* FAImageView.m */; };
 		CA1FABD8A8BB549B5E8BBFBC /* SensorWidgetCard.m in Sources */ = {isa = PBXBuildFile; fileRef = CA1FA94013872821594D0113 /* SensorWidgetCard.m */; };
+		CA1FABE7477265D47FA8EAC1 /* MSNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CA1FAF98DE5A81C31BC7B453 /* MSNetworkManager.m */; };
+		CA1FAC7704A1FDF59B4412D8 /* MSDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CA1FA070BDAEDD6FC53B5358 /* MSDataManager.m */; };
 		CA1FACA9D49AAA84E8E236F5 /* MSSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA1FA26A10AE6E462EADA925 /* MSSettingsViewController.m */; };
 		CA1FACAB0873E1F2F2DC5DEC /* GyroSensorCard.m in Sources */ = {isa = PBXBuildFile; fileRef = CA1FAC11AC0D9F634E7D7C7E /* GyroSensorCard.m */; };
 		CA1FACEEB33C013D93116E39 /* MSSensorSelectorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA1FA7059B5EE020FEE1F03A /* MSSensorSelectorViewController.m */; };
@@ -94,6 +96,7 @@
 		CA1FA034E30D8EC94F1DE0BA /* NSString+FontAwesome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+FontAwesome.h"; sourceTree = "<group>"; };
 		CA1FA0545C0D09B0DFC7B54A /* MSBaseTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSBaseTabBarViewController.h; sourceTree = "<group>"; };
 		CA1FA063F283CF6B0EDE710F /* fontawesome-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "fontawesome-webfont.ttf"; sourceTree = "<group>"; };
+		CA1FA070BDAEDD6FC53B5358 /* MSDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSDataManager.m; sourceTree = "<group>"; };
 		CA1FA08711E1E2D45CDF390B /* FAImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FAImageView.m; sourceTree = "<group>"; };
 		CA1FA12FE43DE64B34661641 /* MSSensorSelectorCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSensorSelectorCell.m; sourceTree = "<group>"; };
 		CA1FA1B3954BD39380F109B4 /* SensorWidget.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SensorWidget.m; sourceTree = "<group>"; };
@@ -101,6 +104,7 @@
 		CA1FA26A10AE6E462EADA925 /* MSSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSettingsViewController.m; sourceTree = "<group>"; };
 		CA1FA2CA26FB41ADC80718A0 /* AccelSensorCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccelSensorCard.m; sourceTree = "<group>"; };
 		CA1FA2EF63058EBE8412CD64 /* MSSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSettingsViewController.h; sourceTree = "<group>"; };
+		CA1FA31BAD7E04BD279AEA2B /* MSNetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSNetworkManager.h; sourceTree = "<group>"; };
 		CA1FA321CC5D8AD172624327 /* GyroSensorCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GyroSensorCard.h; sourceTree = "<group>"; };
 		CA1FA333366321D215518E74 /* NSString+FontAwesome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+FontAwesome.m"; sourceTree = "<group>"; };
 		CA1FA366FB3681C0F2B34DBF /* MSBaseTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSBaseTabBarViewController.m; sourceTree = "<group>"; };
@@ -112,6 +116,7 @@
 		CA1FA544C2C254D3906A9133 /* MSSensorSelectorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSensorSelectorViewController.h; sourceTree = "<group>"; };
 		CA1FA6ADF5421155FA7C136B /* FAImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FAImageView.h; sourceTree = "<group>"; };
 		CA1FA7059B5EE020FEE1F03A /* MSSensorSelectorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSensorSelectorViewController.m; sourceTree = "<group>"; };
+		CA1FA72492D66C55D1ACBFA8 /* MSDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSDataManager.h; sourceTree = "<group>"; };
 		CA1FA7409C97C98E4EA90BAB /* MSTimeLineGraph.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSTimeLineGraph.h; sourceTree = "<group>"; };
 		CA1FA76DB38F10FE1B2295D5 /* GyroDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GyroDetailView.m; sourceTree = "<group>"; };
 		CA1FA775456FDB7197BEEDD1 /* GyroSensorWidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GyroSensorWidget.h; sourceTree = "<group>"; };
@@ -142,6 +147,7 @@
 		CA1FAEEB3FDA440FB463A234 /* DeviceMotionUpdateHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceMotionUpdateHandler.h; sourceTree = "<group>"; };
 		CA1FAF41EA91F8899BA2F2A3 /* MotionDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MotionDetailView.m; sourceTree = "<group>"; };
 		CA1FAF4A97099952040B1783 /* LocationSensorCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationSensorCard.h; sourceTree = "<group>"; };
+		CA1FAF98DE5A81C31BC7B453 /* MSNetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSNetworkManager.m; sourceTree = "<group>"; };
 		CA1FAFCCEF7D50D7F453517A /* LocationDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationDetailView.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -266,6 +272,10 @@
 		CA1FA1A52A169B290ED60F86 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				CA1FA070BDAEDD6FC53B5358 /* MSDataManager.m */,
+				CA1FA72492D66C55D1ACBFA8 /* MSDataManager.h */,
+				CA1FAF98DE5A81C31BC7B453 /* MSNetworkManager.m */,
+				CA1FA31BAD7E04BD279AEA2B /* MSNetworkManager.h */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -500,6 +510,8 @@
 				CA1FA3BE18E15470265206FA /* UIImage+FontAwesome.m in Sources */,
 				CA1FACA9D49AAA84E8E236F5 /* MSSettingsViewController.m in Sources */,
 				CA1FA1EC897124D67E9706C6 /* MSTimeLineGraph.m in Sources */,
+				CA1FAC7704A1FDF59B4412D8 /* MSDataManager.m in Sources */,
+				CA1FABE7477265D47FA8EAC1 /* MSNetworkManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

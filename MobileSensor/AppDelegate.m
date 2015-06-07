@@ -57,6 +57,8 @@
     MSBaseTabBarViewController *rootViewController = [[MSBaseTabBarViewController alloc] init];
     [rootViewController setViewControllers:@[navDashboardViewController,navSelectorViewController,navSettingsViewController]];
 
+    [widgetManager loadWidgets];
+
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window setRootViewController:rootViewController];
     [self.window makeKeyAndVisible];

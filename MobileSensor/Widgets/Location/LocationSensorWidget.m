@@ -31,21 +31,20 @@
     return _sensorCard;
 }
 
-- (void)setIsActive:(BOOL)isActive {
-    [super setIsActive:isActive];
-    if(isActive) {
-        if([CLLocationManager authorizationStatus] == kCLAuthorizationStatusNotDetermined) {
-            [_locationManager requestWhenInUseAuthorization];
+- (void)startWidget {
+    if([CLLocationManager authorizationStatus] == kCLAuthorizationStatusNotDetermined) {
+        [_locationManager requestWhenInUseAuthorization];
 
-        }
-        if([CLLocationManager authorizationStatus] == kCLAuthorizationStatusAuthorizedWhenInUse) {
-            [_locationManager startUpdatingLocation];
-        }
     }
-    else {
-        [_locationManager stopUpdatingLocation];
+    if([CLLocationManager authorizationStatus] == kCLAuthorizationStatusAuthorizedWhenInUse) {
+        [_locationManager startUpdatingLocation];
     }
 }
+
+- (void)stopWidget {
+    [_locationManager stopUpdatingLocation];
+}
+
 
 - (void)locationManager:(CLLocationManager *)manager
     didUpdateToLocation:(CLLocation *)newLocation
@@ -61,6 +60,10 @@
 - (void)locationManager:(CLLocationManager *)manager
        didUpdateHeading:(CLHeading *)newHeading {
 
+}
+
+- (NSString *)widgetId {
+    return @"location";
 }
 
 

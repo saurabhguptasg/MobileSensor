@@ -40,6 +40,13 @@
     return self;
 }
 
+- (void)loadWidgets {
+    for (SensorWidget *widget in _widgets) {
+        //this will load from user defaults and start the last state
+        [widget loadWidget];
+    }
+}
+
 - (void) registerDeviceListener:(NSObject<DeviceMotionUpdateHandler> *)handler withKey:(NSString *)key {
     _deviceListeners[key] = handler;
     if(_deviceListeners.count == 1) {

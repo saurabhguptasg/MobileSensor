@@ -6,6 +6,7 @@
 #import "SensorWidget.h"
 #import "MSSensorSelectorCell.h"
 #import "SensorWidgetCard.h"
+#import "MSDataManager.h"
 
 
 @implementation SensorWidget {
@@ -15,6 +16,16 @@
 @synthesize displayName = _displayName;
 @synthesize sampleInterval = _sampleInterval;
 @synthesize isActive = _isActive;
+
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+
+    }
+
+    return self;
+}
+
 
 -(void)setDisplayName:(NSString *) name {
     _displayName = name;
@@ -50,6 +61,12 @@
 
 }
 
+-(void)loadWidget {
+    _isActive = [[MSDataManager instance] getWidgetState:[self widgetId]];
+    if(_isActive) {
+        [self startWidget];
+    }
+}
 
 /**
 * override setIsActive in sub-class (with call to super)
@@ -63,6 +80,7 @@
     else {
         [self stopWidget];
     }
+    [[MSDataManager instance] setWidgetState:_isActive forName:[self widgetId]];
 }
 
 

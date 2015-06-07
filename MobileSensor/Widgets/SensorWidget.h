@@ -20,4 +20,8 @@
 -(void)startWidget;
 -(void)stopWidget;
 
+- (void)loadWidget;
+
+-(NSString *)widgetId;
+
 @end

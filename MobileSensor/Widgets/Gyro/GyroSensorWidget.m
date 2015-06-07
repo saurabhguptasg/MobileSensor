@@ -29,26 +29,22 @@
     return _sensorCard;
 }
 
-- (void)setIsActive:(BOOL)isActive {
-    [super setIsActive:isActive];
-//    CMMotionManager *motionManager = [[MSSensorUtils instance] motionManager];
-    if(isActive) {
-        [[WidgetManager instance] registerDeviceListener:self withKey:@"gyro"];
-
-//        __weak GyroSensorCard *weakSensorCard = _sensorCard;
-//        [motionManager startDeviceMotionUpdatesToQueue:[[MSSensorUtils instance] eventsQueue]
-//                                           withHandler:^(CMDeviceMotion *motion, NSError *error) {
-//                                               [weakSensorCard update:motion];
-//                                           }];
-    }
-    else {
-        [[WidgetManager instance] deregisterDeviceListenerForKey:@"gyro"];
-//        [motionManager stopDeviceMotionUpdates];
-    }
+- (void)startWidget {
+    [[WidgetManager instance] registerDeviceListener:self withKey:[self widgetId]];
 }
+
+- (void)stopWidget {
+    [[WidgetManager instance] deregisterDeviceListenerForKey:[self widgetId]];
+}
+
 
 - (void)handleDeviceMotionUpdate:(CMDeviceMotion *)deviceMotion {
     [_sensorCard update:deviceMotion];
 }
+
+- (NSString *)widgetId {
+    return @"gyro";
+}
+
 
 @end

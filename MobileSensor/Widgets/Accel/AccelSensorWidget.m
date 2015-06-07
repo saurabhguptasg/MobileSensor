@@ -27,18 +27,20 @@
     return _sensorCard;
 }
 
-- (void)setIsActive:(BOOL)isActive {
-    [super setIsActive:isActive];
-    if(isActive) {
-        [[WidgetManager instance] registerDeviceListener:self withKey:@"accel"];
-    }
-    else {
-        [[WidgetManager instance] deregisterDeviceListenerForKey:@"accel"];
-    }
+- (void)startWidget {
+    [[WidgetManager instance] registerDeviceListener:self withKey:[self widgetId]];
+}
+
+- (void)stopWidget {
+    [[WidgetManager instance] deregisterDeviceListenerForKey:[self widgetId]];
 }
 
 - (void)handleDeviceMotionUpdate:(CMDeviceMotion *)deviceMotion {
     [_sensorCard update:deviceMotion];
+}
+
+- (NSString *)widgetId {
+    return @"accel";
 }
 
 
