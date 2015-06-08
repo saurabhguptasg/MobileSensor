@@ -5,9 +5,24 @@
 
 #import "MSDataManager.h"
 
+NSString * const kEndpointKey = @"endpoint";
+NSString * const kTransmitModeKey = @"transmitMode";
+
+NSString * const kTransmitModeHTTP = @"http";
+NSString * const kTransmitModeSocket = @"socket";
 
 @implementation MSDataManager {
+@private
+    NSUserDefaults *_userDefaults;
+}
 
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        _userDefaults = [NSUserDefaults standardUserDefaults];
+    }
+
+    return self;
 }
 
 
@@ -24,11 +39,27 @@
 }
 
 - (void)setWidgetState:(BOOL)state forName:(NSString *)widgetName {
-    [[NSUserDefaults standardUserDefaults] setBool:state forKey:widgetName];
+    [_userDefaults setBool:state forKey:widgetName];
 }
 
 -(BOOL)getWidgetState:(NSString *)widgetName {
-    return [[NSUserDefaults standardUserDefaults] boolForKey:widgetName];
+    return [_userDefaults boolForKey:widgetName];
+}
+
+- (void) setEndpoint:(NSString *) endpoint {
+    [_userDefaults setObject:endpoint forKey:kEndpointKey];
+}
+
+- (NSString *) getEndpoint {
+    return [_userDefaults objectForKey:kEndpointKey];
+}
+
+- (void) setTransmitMode:(NSString *)mode {
+    [_userDefaults setObject:mode forKey:kTransmitModeKey];
+}
+
+- (NSString *) getTransmitMode {
+    return [_userDefaults objectForKey:kTransmitModeKey];
 }
 
 @end

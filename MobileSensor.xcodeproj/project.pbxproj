@@ -38,6 +38,7 @@
 		CA1FA6109CA398809A582F0E /* LocationSensorWidget.m in Sources */ = {isa = PBXBuildFile; fileRef = CA1FA996774AB2EAAF34B949 /* LocationSensorWidget.m */; };
 		CA1FA6418ABC6EE5717BF211 /* MSBaseTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA1FA366FB3681C0F2B34DBF /* MSBaseTabBarViewController.m */; };
 		CA1FA71F444E5D2F3418CD43 /* NSString+FontAwesome.m in Sources */ = {isa = PBXBuildFile; fileRef = CA1FA333366321D215518E74 /* NSString+FontAwesome.m */; };
+		CA1FA820A50C98477D2EAA8B /* UIImage+MobileSensor.m in Sources */ = {isa = PBXBuildFile; fileRef = CA1FA092A466E1E48DB4C08C /* UIImage+MobileSensor.m */; };
 		CA1FA85B70F71266D34FBE51 /* MotionDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = CA1FAF41EA91F8899BA2F2A3 /* MotionDetailView.m */; };
 		CA1FA8779C406118D3ACC5C4 /* AccelSensorWidget.m in Sources */ = {isa = PBXBuildFile; fileRef = CA1FA4DD829071A16C10DD07 /* AccelSensorWidget.m */; };
 		CA1FA956AAE5378654572288 /* MSSensorUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = CA1FAEC035E3A808F69D28EA /* MSSensorUtils.m */; };
@@ -98,6 +99,7 @@
 		CA1FA063F283CF6B0EDE710F /* fontawesome-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "fontawesome-webfont.ttf"; sourceTree = "<group>"; };
 		CA1FA070BDAEDD6FC53B5358 /* MSDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSDataManager.m; sourceTree = "<group>"; };
 		CA1FA08711E1E2D45CDF390B /* FAImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FAImageView.m; sourceTree = "<group>"; };
+		CA1FA092A466E1E48DB4C08C /* UIImage+MobileSensor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+MobileSensor.m"; sourceTree = "<group>"; };
 		CA1FA12FE43DE64B34661641 /* MSSensorSelectorCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSensorSelectorCell.m; sourceTree = "<group>"; };
 		CA1FA1B3954BD39380F109B4 /* SensorWidget.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SensorWidget.m; sourceTree = "<group>"; };
 		CA1FA1DF2D0192E039651BA1 /* MSDashboardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSDashboardViewController.m; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 		CA1FAE993F26C49E0FC301FB /* LocationSensorWidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationSensorWidget.h; sourceTree = "<group>"; };
 		CA1FAE9CC743DCF8E5A5B451 /* UIImage+FontAwesome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+FontAwesome.h"; sourceTree = "<group>"; };
 		CA1FAEABAF12FD0F3B763363 /* SensorWidgetCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SensorWidgetCard.h; sourceTree = "<group>"; };
+		CA1FAEB65849A9E65A2DA064 /* UIImage+MobileSensor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+MobileSensor.h"; sourceTree = "<group>"; };
 		CA1FAEC035E3A808F69D28EA /* MSSensorUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSensorUtils.m; sourceTree = "<group>"; };
 		CA1FAEE45D7281E867F02F32 /* WidgetManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WidgetManager.m; sourceTree = "<group>"; };
 		CA1FAEEB3FDA440FB463A234 /* DeviceMotionUpdateHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceMotionUpdateHandler.h; sourceTree = "<group>"; };
@@ -359,6 +362,8 @@
 				CA1FAAFD4B93E6455DECD23D /* UIFont+FontAwesome.m */,
 				CA1FAE9CC743DCF8E5A5B451 /* UIImage+FontAwesome.h */,
 				CA1FAD7A43F835C2B540B703 /* UIImage+FontAwesome.m */,
+				CA1FA092A466E1E48DB4C08C /* UIImage+MobileSensor.m */,
+				CA1FAEB65849A9E65A2DA064 /* UIImage+MobileSensor.h */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -512,6 +517,7 @@
 				CA1FA1EC897124D67E9706C6 /* MSTimeLineGraph.m in Sources */,
 				CA1FAC7704A1FDF59B4412D8 /* MSDataManager.m in Sources */,
 				CA1FABE7477265D47FA8EAC1 /* MSNetworkManager.m in Sources */,
+				CA1FA820A50C98477D2EAA8B /* UIImage+MobileSensor.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

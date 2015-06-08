@@ -55,7 +55,11 @@
                                                              andSize:CGSizeMake(20, 20)];
 
     MSBaseTabBarViewController *rootViewController = [[MSBaseTabBarViewController alloc] init];
-    [rootViewController setViewControllers:@[navDashboardViewController,navSelectorViewController,navSettingsViewController]];
+    [rootViewController setViewControllers:@[
+            navDashboardViewController,
+            navSelectorViewController,
+            navSettingsViewController
+    ]];
 
     [widgetManager loadWidgets];
 

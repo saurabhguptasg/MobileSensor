@@ -7,4 +7,10 @@
 
 
 @interface MSNetworkManager : NSObject
+
+@property (nonatomic) NSString *transmitUrl;
+
++ (MSNetworkManager *)instance;
+
+- (void)transmitData:(NSDictionary *)data;
 @end
