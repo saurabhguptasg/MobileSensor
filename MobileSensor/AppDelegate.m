@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import <Fabric/Fabric.h>
+#import <Crashlytics/Crashlytics.h>
 #import "MSBaseTabBarViewController.h"
 #import "MSDashboardViewController.h"
 #import "MSSensorSelectorViewController.h"
@@ -25,6 +27,9 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
+
+    //load Crashlytics
+    [Fabric with:@[CrashlyticsKit]];
 
     //load up the singleton
     WidgetManager *widgetManager = [WidgetManager instance];

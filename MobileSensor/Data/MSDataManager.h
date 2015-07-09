@@ -20,4 +20,8 @@
 - (void)setTransmitMode:(NSString *)mode;
 
 - (NSString *)getTransmitMode;
+
+- (void)setBackgroundMode:(NSString *)mode;
+
+- (NSString *)getBackgroundMode;
 @end

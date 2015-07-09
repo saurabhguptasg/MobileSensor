@@ -23,5 +23,5 @@
 - (void)loadWidget;
 
 -(NSString *)widgetId;
-
+-(BOOL)isVisual;
 @end

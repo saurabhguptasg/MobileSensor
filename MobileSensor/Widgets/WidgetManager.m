@@ -11,6 +11,7 @@
 #import "DeviceMotionUpdateHandler.h"
 #import "GyroSensorWidget.h"
 #import "AccelSensorWidget.h"
+#import "DeviceLocationUpdateHandler.h"
 
 
 @implementation WidgetManager {
@@ -18,6 +19,7 @@
 @private
     NSArray *_widgets;
     NSMutableDictionary *_deviceListeners;
+    NSMutableDictionary *_locationListeners;
 }
 
 @synthesize widgets = _widgets;
@@ -29,6 +31,7 @@
         //create to make sure CMMotionManager is initialized before any of the widgets
         MSSensorUtils *sensorUtils = [MSSensorUtils instance];
         _deviceListeners = [[NSMutableDictionary alloc] init];
+        _locationListeners = [[NSMutableDictionary alloc] init];
         _widgets = @[
                 [[LocationSensorWidget alloc] init],
                 [[MotionSensorWidget alloc] init],
@@ -47,7 +50,8 @@
     }
 }
 
-- (void) registerDeviceListener:(NSObject<DeviceMotionUpdateHandler> *)handler withKey:(NSString *)key {
+- (void) registerDeviceMotionListener:(NSObject <DeviceMotionUpdateHandler> *)handler
+                              withKey:(NSString *)key {
     _deviceListeners[key] = handler;
     if(_deviceListeners.count == 1) {
         CMMotionManager *motionManager = [[MSSensorUtils instance] motionManager];
@@ -60,8 +64,17 @@
     }
 }
 
-- (void) deregisterDeviceListenerForKey:(NSString *)key {
+- (void) deregisterDeviceMotionListenerForKey:(NSString *)key {
     [_deviceListeners removeObjectForKey:key];
+    if(_deviceListeners.count == 0) {
+        CMMotionManager *motionManager = [[MSSensorUtils instance] motionManager];
+        [motionManager stopDeviceMotionUpdates];
+    }
+}
+
+- (void) registerDeviceLocationListener:(NSObject <DeviceLocationUpdateHandler> *) handler
+                                withKey:(NSString *) key {
+    _locationListeners[key] = handler;
 }
 
 

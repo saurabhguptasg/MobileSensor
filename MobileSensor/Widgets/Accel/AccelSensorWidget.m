@@ -28,11 +28,11 @@
 }
 
 - (void)startWidget {
-    [[WidgetManager instance] registerDeviceListener:self withKey:[self widgetId]];
+    [[WidgetManager instance] registerDeviceMotionListener:self withKey:[self widgetId]];
 }
 
 - (void)stopWidget {
-    [[WidgetManager instance] deregisterDeviceListenerForKey:[self widgetId]];
+    [[WidgetManager instance] deregisterDeviceMotionListenerForKey:[self widgetId]];
 }
 
 - (void)handleDeviceMotionUpdate:(CMDeviceMotion *)deviceMotion {

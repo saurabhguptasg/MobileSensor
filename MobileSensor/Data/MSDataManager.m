@@ -7,6 +7,7 @@
 
 NSString * const kEndpointKey = @"endpoint";
 NSString * const kTransmitModeKey = @"transmitMode";
+NSString * const kBackgroundModeKey = @"backgroundMode";
 
 NSString * const kTransmitModeHTTP = @"http";
 NSString * const kTransmitModeSocket = @"socket";
@@ -14,12 +15,14 @@ NSString * const kTransmitModeSocket = @"socket";
 @implementation MSDataManager {
 @private
     NSUserDefaults *_userDefaults;
+    NSMutableArray *_dataBuffer;
 }
 
 - (instancetype)init {
     self = [super init];
     if (self) {
         _userDefaults = [NSUserDefaults standardUserDefaults];
+        _dataBuffer = [[NSMutableArray alloc] init];
     }
 
     return self;
@@ -60,6 +63,14 @@ NSString * const kTransmitModeSocket = @"socket";
 
 - (NSString *) getTransmitMode {
     return [_userDefaults objectForKey:kTransmitModeKey];
+}
+
+-(void) setBackgroundMode:(NSString *)mode {
+    [_userDefaults setObject:mode forKey:kBackgroundModeKey];
+}
+
+- (NSString *) getBackgroundMode {
+    return [_userDefaults objectForKey:kBackgroundModeKey];
 }
 
 @end

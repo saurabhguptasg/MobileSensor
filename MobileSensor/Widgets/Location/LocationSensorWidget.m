@@ -33,11 +33,12 @@
 
 - (void)startWidget {
     if([CLLocationManager authorizationStatus] == kCLAuthorizationStatusNotDetermined) {
-        [_locationManager requestWhenInUseAuthorization];
+        [_locationManager requestAlwaysAuthorization];
 
     }
-    if([CLLocationManager authorizationStatus] == kCLAuthorizationStatusAuthorizedWhenInUse) {
+    if([CLLocationManager authorizationStatus] == kCLAuthorizationStatusAuthorizedAlways) {
         [_locationManager startUpdatingLocation];
+        [_locationManager startMonitoringSignificantLocationChanges];
     }
 }
 

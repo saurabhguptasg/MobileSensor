@@ -10,9 +10,9 @@
 @interface WidgetManager : NSObject
 - (void)loadWidgets;
 
-- (void)registerDeviceListener:(NSObject <DeviceMotionUpdateHandler> *)handler withKey:(NSString *)key;
+- (void)registerDeviceMotionListener:(NSObject <DeviceMotionUpdateHandler> *)handler withKey:(NSString *)key;
 
-- (void)deregisterDeviceListenerForKey:(NSString *)key;
+- (void)deregisterDeviceMotionListenerForKey:(NSString *)key;
 
 + (WidgetManager *)instance;
 

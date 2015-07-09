@@ -84,4 +84,8 @@
 }
 
 
+- (BOOL)isVisual {
+    return YES;
+}
+
 @end
