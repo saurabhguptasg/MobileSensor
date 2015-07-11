@@ -12,6 +12,12 @@
 @interface WidgetManager : NSObject <CLLocationManagerDelegate>
 - (void)loadWidgets;
 
+- (void)background;
+
+- (void)foreground;
+
+- (void)terminate;
+
 - (void)registerDeviceMotionListener:(NSObject <DeviceMotionUpdateHandler> *)handler withKey:(NSString *)key;
 
 - (void)deregisterDeviceMotionListenerForKey:(NSString *)key;

@@ -67,6 +67,26 @@
     }
 }
 
+-(void)background {
+//    [[[MSSensorUtils instance] locationManager] stopUpdatingLocation];
+//    NSLog(@"stopped updating fine grained location");
+}
+
+-(void)foreground {
+//    [[[MSSensorUtils instance] locationManager] startUpdatingLocation];
+//    NSLog(@"restarted updating fine grained location");
+}
+
+/**
+* app must be terminated for background processing to stop, else locations will continue to be transmitted
+*/
+- (void)terminate {
+    [[[MSSensorUtils instance] locationManager] stopUpdatingLocation];
+    [[[MSSensorUtils instance] locationManager] stopMonitoringSignificantLocationChanges];
+    [[[MSSensorUtils instance] motionManager] stopDeviceMotionUpdates];
+    [_eventsQueue cancelAllOperations];
+}
+
 - (void) registerDeviceMotionListener:(NSObject <DeviceMotionUpdateHandler> *)handler
                               withKey:(NSString *)key {
     _deviceListeners[key] = handler;
@@ -110,6 +130,7 @@
     if(_locationListeners.count == 0) {
         CLLocationManager *locationManager = [[MSSensorUtils instance] locationManager];
         [locationManager stopUpdatingLocation];
+        [locationManager stopMonitoringSignificantLocationChanges];
     }
 }
 
