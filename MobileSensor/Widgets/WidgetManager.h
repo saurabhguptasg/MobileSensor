@@ -4,15 +4,21 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreLocation/CoreLocation.h>
 
 @protocol DeviceMotionUpdateHandler;
+@protocol DeviceLocationUpdateHandler;
 
-@interface WidgetManager : NSObject
+@interface WidgetManager : NSObject <CLLocationManagerDelegate>
 - (void)loadWidgets;
 
 - (void)registerDeviceMotionListener:(NSObject <DeviceMotionUpdateHandler> *)handler withKey:(NSString *)key;
 
 - (void)deregisterDeviceMotionListenerForKey:(NSString *)key;
+
+- (void)registerDeviceLocationListener:(NSObject <DeviceLocationUpdateHandler> *)handler withKey:(NSString *)key;
+
+- (void)deregisterDeviceLocationListenerForKey:(NSString *)key;
 
 + (WidgetManager *)instance;
 

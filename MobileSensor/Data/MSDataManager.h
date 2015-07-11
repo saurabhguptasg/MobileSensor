@@ -24,4 +24,6 @@
 - (void)setBackgroundMode:(NSString *)mode;
 
 - (NSString *)getBackgroundMode;
+
+- (NSString *)getUUID;
 @end

@@ -19,6 +19,8 @@
     UIButton *endpointSaveButton;
     NSString *prevEndpointText;
     NSMutableArray *cells;
+
+    UISwitch *backgroundSwitch;
 }
 
 - (instancetype)init {
@@ -40,10 +42,14 @@
 }
 
 -(void) buildCells {
+    UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                                           action:@selector(dismissKeyboard:)];
+    [self.view addGestureRecognizer:tapGestureRecognizer];
+
     CGSize screenSize = [[MSSensorUtils instance] screenSize];
     UITableViewCell *endpointLabelCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
                                                                reuseIdentifier:@"endpointLabel"];
-    endpointLabelCell.textLabel.text = @"Endpoint:";
+    endpointLabelCell.textLabel.text = NSLocalizedString(@"Endpoint:", @"");
     endpointLabelCell.selectionStyle = UITableViewCellSelectionStyleNone;
     [cells addObject:endpointLabelCell];
 
@@ -59,6 +65,7 @@
     endpointField.rightView = [[UIView alloc] initWithFrame:CGRectMake(endpointField.frame.size.width - 5,0,5,40)];
     endpointField.rightViewMode = UITextFieldViewModeAlways;
     endpointField.text = prevEndpointText;
+    endpointField.delegate = self;
     UITableViewCell *endpointFieldCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
                                                                 reuseIdentifier:@"endpointField"];
     endpointFieldCell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -74,21 +81,33 @@
     UIBarButtonItem *cancelItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel
                                                                                 target:self
                                                                                 action:@selector(endpointCancel:)];
+    UIBarButtonItem *midSpaceItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace
+                                                                                  target:nil
+                                                                                  action:nil];
     UIBarButtonItem *saveItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave
                                                                               target:self
                                                                               action:@selector(endpointSave:)];
-    toolbar.items = @[leftSpacer, cancelItem, saveItem];
+    toolbar.items = @[leftSpacer, cancelItem, midSpaceItem, saveItem];
 
     UITableViewCell *saveCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
                                                        reuseIdentifier:@"endpointSave"];
     saveCell.selectionStyle = UITableViewCellSelectionStyleNone;
     [saveCell addSubview:toolbar];
     [cells addObject:saveCell];
+
+    backgroundSwitch = [[UISwitch alloc] init];
+    [backgroundSwitch addTarget:self
+                         action:@selector(handleBGSwitch:)
+               forControlEvents:UIControlEventValueChanged];
+    UITableViewCell *bgCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
+                                                     reuseIdentifier:@"backgroundSwitch"];
+    bgCell.textLabel.text = NSLocalizedString(@"Background Data Collection", @"");
+    bgCell.accessoryView = backgroundSwitch;
+    [cells addObject:bgCell];
 }
 
 - (void)endpointSave:(id)endpointSave {
     [[MSDataManager instance] setEndpoint:endpointField.text];
-    [[MSNetworkManager instance] setTransmitUrl:endpointField.text];
     prevEndpointText = endpointField.text;
 }
 
@@ -96,6 +115,15 @@
     endpointField.text = prevEndpointText;
 }
 
+-(void)handleBGSwitch:(id)sender {
+    NSLog(@"backgroundSwitch.isOn = %d", backgroundSwitch.isOn);
+}
+
+-(void)dismissKeyboard:(UITextField *)textField {
+    [endpointField resignFirstResponder];
+}
+
+#pragma mark - TableViewController delegate methods
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
@@ -109,9 +137,19 @@
     return cells.count;
 }
 
+/*
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 44.0f;
 }
+*/
+
+#pragma mark - UITextField delegate methods
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return NO;
+}
+
 
 
 @end

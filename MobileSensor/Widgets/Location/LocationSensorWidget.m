@@ -7,6 +7,7 @@
 #import "LocationSensorCard.h"
 #import "SensorWidgetCard.h"
 #import "MSSensorUtils.h"
+#import "WidgetManager.h"
 
 
 @implementation LocationSensorWidget {
@@ -21,7 +22,6 @@
         _displayName = @"Location";
         _sensorCard = [LocationSensorCard cardWithWidget:self];
         _locationManager = [[MSSensorUtils instance] locationManager];
-        [_locationManager setDelegate:self];
     }
 
     return self;
@@ -32,35 +32,16 @@
 }
 
 - (void)startWidget {
-    if([CLLocationManager authorizationStatus] == kCLAuthorizationStatusNotDetermined) {
-        [_locationManager requestAlwaysAuthorization];
-
-    }
-    if([CLLocationManager authorizationStatus] == kCLAuthorizationStatusAuthorizedAlways) {
-        [_locationManager startUpdatingLocation];
-        [_locationManager startMonitoringSignificantLocationChanges];
-    }
+    [[WidgetManager instance] registerDeviceLocationListener:self
+                                                     withKey:[self widgetId]];
 }
 
 - (void)stopWidget {
-    [_locationManager stopUpdatingLocation];
+    [[WidgetManager instance] deregisterDeviceLocationListenerForKey:[self widgetId]];
 }
 
-
-- (void)locationManager:(CLLocationManager *)manager
-    didUpdateToLocation:(CLLocation *)newLocation
-           fromLocation:(CLLocation *)oldLocation {
-
-}
-
-- (void)locationManager:(CLLocationManager *)manager
-     didUpdateLocations:(NSArray *)locations {
-    [_sensorCard update:locations];
-}
-
-- (void)locationManager:(CLLocationManager *)manager
-       didUpdateHeading:(CLHeading *)newHeading {
-
+- (void)handleDeviceLocationUpdate:(CLLocation *)location {
+    [_sensorCard handleDeviceLocationUpdate:location];
 }
 
 - (NSString *)widgetId {

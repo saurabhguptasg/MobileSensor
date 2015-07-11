@@ -6,6 +6,8 @@
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
 #import "SensorWidget.h"
+#import "DeviceLocationUpdateHandler.h"
 
-@interface LocationSensorWidget : SensorWidget <CLLocationManagerDelegate>
+
+@interface LocationSensorWidget : SensorWidget <DeviceLocationUpdateHandler>
 @end

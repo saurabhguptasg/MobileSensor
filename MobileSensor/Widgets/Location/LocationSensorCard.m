@@ -61,6 +61,17 @@
     return [[UIColor brownColor] colorWithAlphaComponent:0.50];
 }
 
+- (void)handleDeviceLocationUpdate:(CLLocation *)location {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        MKCoordinateRegion region = MKCoordinateRegionMake(location.coordinate, MKCoordinateSpanMake(0.01, 0.01));
+        _mapView.region = region;
+
+        _pointAnnotation.coordinate = location.coordinate;
+        _locationLabel.text = [NSString stringWithFormat:@"%5f,%5f",location.coordinate.latitude, location.coordinate.longitude];
+    });
+}
+
+
 - (void)update:(NSArray *)locations {
     if(locations.count == 0) {
         return;

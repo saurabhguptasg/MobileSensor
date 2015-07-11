@@ -7,5 +7,5 @@
 #import <UIKit/UIKit.h>
 
 
-@interface MSSettingsViewController : UITableViewController
+@interface MSSettingsViewController : UITableViewController <UITextFieldDelegate>
 @end

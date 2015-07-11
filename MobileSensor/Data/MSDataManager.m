@@ -3,7 +3,10 @@
 // Copyright (c) 2015 Pivotal. All rights reserved.
 //
 
+#import <UIKit/UIKit.h>
 #import "MSDataManager.h"
+#import "NSString+UUID.h"
+#import "MSNetworkManager.h"
 
 NSString * const kEndpointKey = @"endpoint";
 NSString * const kTransmitModeKey = @"transmitMode";
@@ -16,6 +19,7 @@ NSString * const kTransmitModeSocket = @"socket";
 @private
     NSUserDefaults *_userDefaults;
     NSMutableArray *_dataBuffer;
+    MSNetworkManager *_networkManager;
 }
 
 - (instancetype)init {
@@ -23,6 +27,9 @@ NSString * const kTransmitModeSocket = @"socket";
     if (self) {
         _userDefaults = [NSUserDefaults standardUserDefaults];
         _dataBuffer = [[NSMutableArray alloc] init];
+        [self getUUID];
+        _networkManager = [MSNetworkManager instance];
+        [_networkManager setTransmitUrl:[self getEndpoint]];
     }
 
     return self;
@@ -51,6 +58,7 @@ NSString * const kTransmitModeSocket = @"socket";
 
 - (void) setEndpoint:(NSString *) endpoint {
     [_userDefaults setObject:endpoint forKey:kEndpointKey];
+    [_networkManager setTransmitUrl:endpoint];
 }
 
 - (NSString *) getEndpoint {
@@ -71,6 +79,28 @@ NSString * const kTransmitModeSocket = @"socket";
 
 - (NSString *) getBackgroundMode {
     return [_userDefaults objectForKey:kBackgroundModeKey];
+}
+
++ (BOOL) isSimulator {
+    return [[[UIDevice currentDevice] model] hasSuffix:@"Simulator"]; //iPhone, iPad or iPod
+}
+
+
+- (NSString *) getUUID {
+    static NSString *uuid;
+    static dispatch_once_t tUid;
+    dispatch_once(&tUid, ^{
+        NSString *str = [[NSUserDefaults standardUserDefaults] stringForKey:@"UUID"];
+        if(str == nil) {
+            uuid = [MSDataManager isSimulator] ? @"SIMULATOR" : [NSString uuid];
+            [[NSUserDefaults standardUserDefaults] setObject:uuid
+                                                      forKey:@"UUID"];
+        }
+        else {
+            uuid = str;
+        }
+    });
+    return uuid;
 }
 
 @end

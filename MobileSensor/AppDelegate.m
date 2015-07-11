@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "WidgetManager.h"
 #import <Fabric/Fabric.h>
 #import <Crashlytics/Crashlytics.h>
 #import "MSBaseTabBarViewController.h"
@@ -16,12 +17,16 @@
 #import "MSSensorUtils.h"
 #import "UIImage+FontAwesome.h"
 #import "MSSettingsViewController.h"
+#import "MSDataManager.h"
 
 @interface AppDelegate ()
 
 @end
 
-@implementation AppDelegate
+@implementation AppDelegate {
+    MSDataManager *_dataManager;
+    WidgetManager *_widgetManager;
+}
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
@@ -32,7 +37,9 @@
     [Fabric with:@[CrashlyticsKit]];
 
     //load up the singleton
-    WidgetManager *widgetManager = [WidgetManager instance];
+    _dataManager = [MSDataManager instance];
+    _widgetManager = [WidgetManager instance];
+
     NSLog(@"[[MSSensorUtils instance] screenSize] = %@", NSStringFromCGSize([[MSSensorUtils instance] screenSize]));
 
     MSDashboardViewController *dashboardViewController = [[MSDashboardViewController alloc] init];
@@ -66,7 +73,7 @@
             navSettingsViewController
     ]];
 
-    [widgetManager loadWidgets];
+    [_widgetManager loadWidgets];
 
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window setRootViewController:rootViewController];
