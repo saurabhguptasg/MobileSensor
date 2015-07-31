@@ -46,6 +46,13 @@
                                                                                            action:@selector(dismissKeyboard:)];
     [self.view addGestureRecognizer:tapGestureRecognizer];
 
+    [self.navigationItem setTitle:NSLocalizedString(@"Settings", @"")];
+
+    UITableViewCell *deviceIdCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"uuid"];
+    deviceIdCell.textLabel.text = [[MSDataManager instance] getUUID];
+    deviceIdCell.detailTextLabel.text = NSLocalizedString(@"Device Id", @"");
+    [cells addObject:deviceIdCell];
+
     CGSize screenSize = [[MSSensorUtils instance] screenSize];
     UITableViewCell *endpointLabelCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
                                                                reuseIdentifier:@"endpointLabel"];

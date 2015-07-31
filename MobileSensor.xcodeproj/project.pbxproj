@@ -45,10 +45,12 @@
 		CA1FA5CF40B8F15653F745BC /* fontawesome-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CA1FA063F283CF6B0EDE710F /* fontawesome-webfont.ttf */; };
 		CA1FA6109CA398809A582F0E /* LocationSensorWidget.m in Sources */ = {isa = PBXBuildFile; fileRef = CA1FA996774AB2EAAF34B949 /* LocationSensorWidget.m */; };
 		CA1FA6418ABC6EE5717BF211 /* MSBaseTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA1FA366FB3681C0F2B34DBF /* MSBaseTabBarViewController.m */; };
+		CA1FA67D7296AB1936D48CE1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CA1FA55072B105FAD13BA44D /* Localizable.strings */; };
 		CA1FA71F444E5D2F3418CD43 /* NSString+FontAwesome.m in Sources */ = {isa = PBXBuildFile; fileRef = CA1FA333366321D215518E74 /* NSString+FontAwesome.m */; };
 		CA1FA820A50C98477D2EAA8B /* UIImage+MobileSensor.m in Sources */ = {isa = PBXBuildFile; fileRef = CA1FA092A466E1E48DB4C08C /* UIImage+MobileSensor.m */; };
 		CA1FA85B70F71266D34FBE51 /* MotionDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = CA1FAF41EA91F8899BA2F2A3 /* MotionDetailView.m */; };
 		CA1FA8779C406118D3ACC5C4 /* AccelSensorWidget.m in Sources */ = {isa = PBXBuildFile; fileRef = CA1FA4DD829071A16C10DD07 /* AccelSensorWidget.m */; };
+		CA1FA93C37EC828D60756EE8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CA1FA55072B105FAD13BA44D /* Localizable.strings */; };
 		CA1FA956AAE5378654572288 /* MSSensorUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = CA1FAEC035E3A808F69D28EA /* MSSensorUtils.m */; };
 		CA1FAA1D3BDD154CFCD363F6 /* SensorWidget.m in Sources */ = {isa = PBXBuildFile; fileRef = CA1FA1B3954BD39380F109B4 /* SensorWidget.m */; };
 		CA1FAA876FF74E710070DBE5 /* MotionSensorCard.m in Sources */ = {isa = PBXBuildFile; fileRef = CA1FA02EFEB9BEF5D090E98B /* MotionSensorCard.m */; };
@@ -135,6 +137,7 @@
 		CA1FA4DD829071A16C10DD07 /* AccelSensorWidget.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccelSensorWidget.m; sourceTree = "<group>"; };
 		CA1FA4E68BED40E97AF0E411 /* MSDashboardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSDashboardViewController.h; sourceTree = "<group>"; };
 		CA1FA544C2C254D3906A9133 /* MSSensorSelectorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSensorSelectorViewController.h; sourceTree = "<group>"; };
+		CA1FA55072B105FAD13BA44D /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = Localizable.strings; path = Views/Localizable.strings; sourceTree = "<group>"; };
 		CA1FA69FFDF4FF725BC76A9A /* BackgroundDeviceMotionWidget.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BackgroundDeviceMotionWidget.m; sourceTree = "<group>"; };
 		CA1FA6ADF5421155FA7C136B /* FAImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FAImageView.h; sourceTree = "<group>"; };
 		CA1FA6AEE82974708FE3BD0B /* BackgroundLocationWidget.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BackgroundLocationWidget.m; sourceTree = "<group>"; };
@@ -274,6 +277,7 @@
 				34659E971B1B931100CF025E /* Info.plist */,
 				34659E981B1B931100CF025E /* main.m */,
 				CA1FA063F283CF6B0EDE710F /* fontawesome-webfont.ttf */,
+				CA1FA55072B105FAD13BA44D /* Localizable.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -536,6 +540,7 @@
 				34659EA71B1B931100CF025E /* LaunchScreen.xib in Resources */,
 				34659EA41B1B931100CF025E /* Images.xcassets in Resources */,
 				CA1FA5CF40B8F15653F745BC /* fontawesome-webfont.ttf in Resources */,
+				CA1FA93C37EC828D60756EE8 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -543,6 +548,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA1FA67D7296AB1936D48CE1 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
