@@ -172,7 +172,8 @@
         [weakSamples removeAllObjects];
         [_eventsQueue addOperation:[NSBlockOperation blockOperationWithBlock:^{
             [[MSNetworkManager instance] transmitSamples:tempSamples
-                                             forDeviceId:[[MSDataManager instance] getUUID]];
+                                             forDeviceId:[[MSDataManager instance] getUUID]
+                                           withSessionId:[[MSDataManager instance] sessionId]];
         }]];
     }]];
 }

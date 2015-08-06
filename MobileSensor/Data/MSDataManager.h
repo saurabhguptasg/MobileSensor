@@ -26,4 +26,7 @@
 - (NSString *)getBackgroundMode;
 
 - (NSString *)getUUID;
+
+@property(nonatomic, copy, readonly) NSString *sessionId;
+
 @end

@@ -21,16 +21,17 @@ typedef enum {
 
 @synthesize transmitUrl = _transmitUrl;
 
-- (void)transmitSamples:(NSArray *)samples forDeviceId:(NSString *)deviceId{
+- (void)transmitSamples:(NSArray *)samples forDeviceId:(NSString *)deviceId withSessionId:(NSString *)sessionId{
     if(_transmitUrl != nil) {
         NSDictionary *data = @{
                 @"deviceId" : deviceId,
+                @"sessionId": sessionId,
                 @"data" : samples
         };
         [MSNetworkManager sendRequestOfType:RequestTypePost
                                  withParams:data
                                       toUrl:[NSURL URLWithString:_transmitUrl]
-                               withDeviceId:(NSString *)deviceId];
+                               withDeviceId:deviceId];
     }
 }
 

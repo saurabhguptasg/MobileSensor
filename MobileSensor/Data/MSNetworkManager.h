@@ -12,5 +12,5 @@
 
 + (MSNetworkManager *)instance;
 
-- (void)transmitSamples:(NSArray *)samples forDeviceId:(NSString *)deviceId;
+- (void)transmitSamples:(NSArray *)samples forDeviceId:(NSString *)deviceId withSessionId:(NSString *)sessionId;
 @end

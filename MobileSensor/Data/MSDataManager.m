@@ -20,6 +20,7 @@ NSString * const kTransmitModeSocket = @"socket";
     NSUserDefaults *_userDefaults;
     NSMutableArray *_dataBuffer;
     MSNetworkManager *_networkManager;
+    NSString *_sessionId;
 }
 
 - (instancetype)init {
@@ -30,6 +31,7 @@ NSString * const kTransmitModeSocket = @"socket";
         [self getUUID];
         _networkManager = [MSNetworkManager instance];
         [_networkManager setTransmitUrl:[self getEndpoint]];
+        _sessionId = [NSString uuid];
     }
 
     return self;
