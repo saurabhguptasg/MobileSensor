@@ -68,13 +68,13 @@
 }
 
 -(void)background {
-//    [[[MSSensorUtils instance] locationManager] stopUpdatingLocation];
-//    NSLog(@"stopped updating fine grained location");
+    [[[MSSensorUtils instance] locationManager] stopUpdatingLocation];
+    NSLog(@"stopped updating fine grained location");
 }
 
 -(void)foreground {
-//    [[[MSSensorUtils instance] locationManager] startUpdatingLocation];
-//    NSLog(@"restarted updating fine grained location");
+    [[[MSSensorUtils instance] locationManager] startUpdatingLocation];
+    NSLog(@"restarted updating fine grained location");
 }
 
 /**
